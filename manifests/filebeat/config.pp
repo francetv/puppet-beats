@@ -7,8 +7,11 @@ class beats::filebeat::config inherits beats::filebeat {
     order   => 05,
   }
   # We read them again to combine the variables defined at different levels
-  $p2 = hiera_hash('beats::filebeat::prospectors', {})
-  if $p2 {
-    create_resources('beats::filebeat::prospector', $p2)
+  $real_settings = deep_merge(
+    $beats::filebeat::prospectors,
+    hiera_hash('beats::filebeat::prospectors', {})
+  )
+  if $real_settings {
+    create_resources('beats::filebeat::prospector', $real_settings)
   }
 }
