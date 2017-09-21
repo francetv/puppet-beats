@@ -3,6 +3,7 @@
 define beats::filebeat::prospector (
   $paths                 = [],
   $fields                = {},
+  $tags                  = undef,
   $encoding              = undef,
   $ignore_older          = undef,
   $scan_frequency        = undef,
