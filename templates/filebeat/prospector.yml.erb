@@ -5,7 +5,7 @@
       fields:<% @fields.each do |key, value| %>
         <%= key -%>: <%= value %>
       <%- end -%>
-      <%- if @tags -%>tags: <%= @tags %><% end -%>
+<%- if @tags -%>      tags: <%= @tags %><% end -%>
 <%- if @encoding -%>      encoding: <%= @encoding %><% end -%>
 <%- if @ignore_older -%>      ignore_older: <%= @ignore_older %><% end -%>
 <%- if @scan_frequency -%>      scan_frequency: <%= @scan_frequency %><% end -%>
